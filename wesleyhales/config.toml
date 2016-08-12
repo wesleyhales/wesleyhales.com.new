@@ -1,0 +1,14 @@
+baseurl = "http://wesleyhales.com/"
+languageCode = "en-us"
+title = "Wesley Hales"
+googleAnalytics = "UA-1241000-10"
+disablePathToLower = true
+
+[params]
+  Author = "Wesley Hales"
+  disqusShortname = "wesleyhales"
+  google_analytics = "UA-1241000-10"
+
+[permalinks]
+    old = "/blog/:year/:month/:day/:title"
+    #old = "/:filename/"
