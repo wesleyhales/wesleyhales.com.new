@@ -6,6 +6,7 @@ echo "HUGO_WATCH:" $WATCH
 echo "HUGO_REFRESH_TIME:" $HUGO_REFRESH_TIME
 echo "HUGO_THEME:" $HUGO_THEME
 echo "HUGO_BASEURL" $HUGO_BASEURL
+echo "HUGO_APPEND_PORT" $HUGO_APPEND_PORT
 
 HUGO=/usr/bin/hugo
 
@@ -19,11 +20,11 @@ do
 	    echo "Watching..."
 	    #--appendPort="false"
 	      rm -rf /output/* && \
-        $HUGO server --watch=true --source="/src/wesleyhales" --theme="$HUGO_THEME" --destination="/output" --baseUrl="$HUGO_BASEURL" --bind="0.0.0.0" || exit 1
+        $HUGO server --watch=true --source="/src/wesleyhales" --theme="$HUGO_THEME" --destination="/output" --appendPort="$HUGO_APPEND_PORT" --baseUrl="$HUGO_BASEURL" --bind="0.0.0.0" || exit 1
     else
 	    echo "Building one time..."
 	      rm -rf /output/* && \
-        $HUGO --source="/src/wesleyhales" --theme="$HUGO_THEME" --destination="/output" --baseUrl="$HUGO_BASEURL" || exit 1
+        $HUGO --source="/src/wesleyhales" --theme="$HUGO_THEME" --destination="/output" --baseUrl="$HUGO_BASEURL" --appendPort="$HUGO_APPEND_PORT" || exit 1
     fi
 
     if [[ $HUGO_REFRESH_TIME == -1 ]]; then
