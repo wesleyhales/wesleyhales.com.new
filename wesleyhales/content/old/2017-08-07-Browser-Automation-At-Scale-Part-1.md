@@ -39,8 +39,8 @@ All we need to worry about is to make sure the tests are written using the WebDr
 #### Setup Docker Swarm along with the Selenium Grid, Hub and Node
 There are four main components to the underlying testing infrastructure, which I quickly summarize below. The good news
 is that there are no configuration files to write and everything is used out of box from the official Docker repositories
-of each project. The goal of my setup is to be as disposable as poossible. Everything is to be reproducible without any
-glue code or unecessary abstraction layers.
+of each project. The goal of my setup is to be as disposable as possible. Everything is to be reproducible without any
+glue code or unnecessary abstraction layers.
 
 ##### Quick Component Summary
 
@@ -69,7 +69,7 @@ something is wrong. And debugging this setup is a whole other blog post.
 * Leave this terminal window open. We'll be back in a sec.
  
 ### Selenium Node - Machine Setup
-Now we'll setup the first Chrome Node that will connect to the Hub. You'll need to create anouther CoreOS VM, this time with 
+Now we'll setup the first Chrome Node that will connect to the Hub. You'll need to create another CoreOS VM, this time with 
 a minimum of 2 processors and 4GB of memory. Also, make a note of the hostname of this machine by using the following command. 
 The hostname is normally defined within the hosting provider's UI. If not, you can can change it (if needed) once you SSH into the instance:
 
@@ -92,7 +92,7 @@ Selenium Chrome client on the Node machine you just setup. Remember everything w
 ```
 docker service create --network selenium-grid --name selenium-node-chrome-sfo --constraint 'node.hostname==sfo1-node-01' -p 5560:5560 --mount type=bind,src=/dev/shm,dst=/dev/shm -e HUB_PORT_4444_TCP_ADDR=hub -e HUB_PORT_4444_TCP_PORT=4444 -e NODE_MAX_INSTANCES=1 -e NODE_MAX_SESSION=1 --replicas 1 selenium/node-chrome bash -c 'SE_OPTS="-browser applicationName=sfo1-node,browserName=chrome,maxInstances=1 -host $HOSTNAME -port 5560" /opt/bin/entry_point.sh'
 ```
-That's a hefty command and you might be wondering what all of the switched and paramters are for. I'll attempt to break it 
+That's a hefty command and you might be wondering what all of the switched and parameters are for. I'll attempt to break it 
  down for you here: 
  
 1) ```node.hostname==sfo1-node-01```
@@ -104,7 +104,7 @@ white glove environment.
   
 2) ```SE_OPTS=-browser applicationName=sfo1-node```
 
-* This paramter gives our test script a hook so that it will run on this specific SFO node.
+* This parameter gives our test script a hook so that it will run on this specific SFO node.
 
 3) ```--name selenium-node-chrome-sfo```
 
@@ -122,7 +122,7 @@ To get started, we'll setup some basic logging so we can see the test execute an
 <script src="https://gist.github.com/wesleyhales/ca2b8f8844061b4b4d70c82ecb744ea3.js"></script>
 
 * Server logging basically tells you when the test execution began and when it ended.
-* Performce Logging gives us more information around frame navigation. We'll be able to corellate this later with navigation and Resource timing APIs. 
+* Performance Logging gives us more information around frame navigation. We'll be able to correlate this later with navigation and Resource timing APIs. 
 * For all loggin configuration options see https://github.com/SeleniumHQ/selenium/wiki/Logging
 
 In the following snippet, we're adding more criteria for our test and actually sending log messages that we setup earlier to console.log:
