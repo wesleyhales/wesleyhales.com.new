@@ -11,4 +11,3 @@ disablePathToLower = true
 
 [permalinks]
     old = "/blog/:year/:month/:day/:title"
-    #old = "/:filename/"

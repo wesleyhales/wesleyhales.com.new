@@ -1,6 +1,6 @@
 ---
 author: "Wesley Hales"
-date: 2015-12-23
+date: 2016-12-23
 layout: blog
 title: The Decommissioning of Onslyde
 tags: [oss management]
