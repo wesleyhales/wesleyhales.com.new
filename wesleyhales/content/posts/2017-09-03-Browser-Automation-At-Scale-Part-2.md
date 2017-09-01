@@ -1,11 +1,10 @@
 ---
 author: "Wesley Hales"
-date: 2017-09-03
+date: 2017-09-01
 layout: blog
 title: Browser Automation At Scale - Part 2 
 tags: [docker swarm, selenium hub, selenium grid, chrome]
 preview: The second in a series of posts on synthetic browser testing with docker swarm and selenium. 
-previewimage: /images/icons/onslyde.png
 ---
 
 In [Part 1](/posts/2017-08-07-Browser-Automation-At-Scale-Part-1/), I reviewed the gory details of the foundation required to run synthetic browser testing at scale.
