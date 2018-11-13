@@ -1,4 +1,4 @@
-baseurl = "http://wesleyhales.com/"
+baseurl = "//wesleyhales.com/"
 languageCode = "en-us"
 title = "Wesley Hales"
 googleAnalytics = "UA-1241000-10"
